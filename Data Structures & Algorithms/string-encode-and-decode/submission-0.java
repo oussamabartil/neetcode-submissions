@@ -1,0 +1,23 @@
+class Solution {
+
+    public String encode(List<String> strs) {
+          String encodedString="";
+        for(String str : strs){
+            int tailleStr =str.length();
+           encodedString+= tailleStr +"#" + str;
+        }
+        return encodedString;
+    }
+
+    public List<String> decode(String str) {
+        List<String> strs =new ArrayList<>();
+        int i=0;
+       while (i < str.length()){
+            int j = str.indexOf("#", i);   
+        int longueur = Integer.parseInt(str.substring(i, j));  
+        strs.add(str.substring(j+1, j+1+longueur));
+        i=j+1+longueur;
+              }
+              return strs;
+    }
+}
